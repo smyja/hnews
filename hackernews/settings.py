@@ -80,7 +80,7 @@ CELERY_BROKER_URL='redis://localhost:6379'
 CELERY_BEAT_SCHEDULE ={
     "SendScheduledEmails":{
         'task':'news.tasks.sendu',
-         'schedule': 10 #crontab(minute='*/30')
+         'schedule': crontab(minute='*/10')
     }
 }
 

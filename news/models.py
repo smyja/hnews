@@ -15,7 +15,7 @@ class Stories(models.Model):
     time = models.CharField("Date created", max_length=1000, null=True)
     text = models.TextField("The comment, story or poll text.", null=True)
     dead = models.BooleanField(default=False)
-    url = models.URLField("URL", max_length=1000, null=True)
+    url = models.URLField("URL", max_length=1000, null=True, default="" ) 
     score = models.IntegerField("Score", null=True)
     descendants = models.IntegerField("Descendants",blank=True, null=True)
 
