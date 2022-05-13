@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from news.views import homepage
+from news.views import apidata, StoryListView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', homepage, name="home"),
+    path('', StoryListView.as_view(), name="home"),
+    path('a/', apidata, name="api"),
 
 ]

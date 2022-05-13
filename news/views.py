@@ -2,10 +2,11 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from news.api import HackerNewsAPI
 from .models import Stories
+from django.views import generic
 
 # Create your views here.
 
-def homepage(request):
+def apidata(request):
     hn=HackerNewsAPI()
     article=hn.get_stories()
  
@@ -20,9 +21,33 @@ def homepage(request):
         news.title=i['Title']
         news.story_type=i['Type']
         news.author=i['Author']
-        news.slug=i['link']
+        news.url=i['link']
         news.kids=i['Kids']
         news.time=i['Time']
         news.save()
     return HttpResponse("Scraping is done")
-   
+
+
+class StoryListView(generic.ListView):
+    template_name = 'homepage.html'
+    paginate_by = 10
+
+
+    def get_queryset(self):
+        qs = Stories.objects.all()
+
+        title = self.request.GET.get('title', None)
+        if title:
+            qs = qs.filter(title__icontains=title)
+
+        return qs.order_by("-synced")
+
+    def get_context_data(self, **kwargs):
+        context = super(StoryListView, self).get_context_data(**kwargs)
+        count = Stories.objects.all().count()
+        context.update({
+            "total_count": count
+        })
+        return context
+    
+

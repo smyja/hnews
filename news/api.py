@@ -33,7 +33,7 @@ class HackerNewsAPI:
         r = requests.get(self.stories_api)
         article_ids = r.json() # author used submission as variable name, but articles made more sense to me
         five_articles_dicts = [] # this dict will contain all of our articles
-        for article_id in article_ids[:6]:
+        for article_id in article_ids[:5]:
             url = 'https://hacker-news.firebaseio.com/v0/item/' + str(article_id) + '.json' # plug in looped id
             article_r = requests.get(url) # get response for each individual article
 
@@ -43,10 +43,10 @@ class HackerNewsAPI:
             five_articles_dict = {
             'Title': one_article['title'],
             'link': one_article['url'],
-          
-            'Score': one_article['score'],
+            'descendants': one_article['descendants'],
+            'score': one_article['score'],
             'Author': one_article['by'],
-            'Time':datetime.fromtimestamp(one_article['time'], pytz.utc),
+            'Time': datetime.fromtimestamp(one_article['time']).strftime("%d %B, %Y %H:%M"),
             'Type': one_article['type'],
             'ID': one_article['id'],
             'Kids': one_article['kids']  }
