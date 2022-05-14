@@ -45,6 +45,7 @@ class StoryListView(generic.ListView):
     def get_context_data(self, **kwargs):
         context = super(StoryListView, self).get_context_data(**kwargs)
         count = Stories.objects.all().count()
+        
         context.update({
             "total_count": count
         })

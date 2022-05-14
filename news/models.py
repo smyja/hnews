@@ -20,14 +20,14 @@ class Stories(models.Model):
     descendants = models.IntegerField("Descendants",blank=True, null=True)
 
 
-
-
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
         super(Stories, self).save(*args, **kwargs)
     
     def __str__(self):
         return self.title
+
+
 class Comment(models.Model):
     title = models.TextField("Title", null=True)
     comment_id = models.IntegerField("Story ID", null=True, unique=True)
