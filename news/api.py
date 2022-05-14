@@ -43,14 +43,14 @@ class HackerNewsAPI:
             if one_article['type'] == 'story':
 
                 five_articles_dict = {
-                'Title': one_article['title'],
+                'Title': one_article.get('title'),
                 'link': one_article.get('url', ""),
                 'descendants': one_article.get('descendants', 0),
-                'score': one_article['score'],
-                'Author': one_article['by'],
+                'score': one_article.get('score'),
+                'Author': one_article.get('by'),
                 'Time': datetime.fromtimestamp(one_article['time']).strftime("%d %B, %Y %H:%M"),
-                'Type': one_article['type'],
-                'ID': one_article['id'],
+                'Type': one_article.get('type'),
+                'ID': one_article.get('id'),
                 'Kids': one_article.get('kids', None)  }
 
                 five_articles_dicts.append(five_articles_dict)
