@@ -80,9 +80,9 @@ WSGI_APPLICATION = 'hackernews.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 CELERY_BROKER_URL='redis://localhost:6379'
-
+CELERY_TIMEZONE='Africa/Nairobi'
 CELERY_BEAT_SCHEDULE ={
-    "SyncNews":{
+    "Sync":{
         'task':'news.tasks.sendu',
          'schedule': crontab(minute='*/5')
     }

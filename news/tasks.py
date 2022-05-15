@@ -15,11 +15,8 @@ def sendu():
     hn = HackerNewsAPI()
     article = hn.get_stories()
 
-    # loop = asyncio.get_event_loop()
-    # loop.create_task(do_long_query_in_the_background(some_data))
     comments = {}
     for i in article:
-        # Check if the story is already in the database
         Stories.objects.get_or_create(
             title=i["Title"],
             author=i["Author"],
@@ -33,4 +30,4 @@ def sendu():
         )
 
         comments["list"] = i["Kids"]
-    return "First scraping is done"
+    return "News sync complete is done"
