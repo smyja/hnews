@@ -24,3 +24,4 @@ Open another terminal and run
 - ```api/v1/docs``` - Swagger documentation
 - ```api/v1/create``` - Endpoint for creating story
 - ```api/v1/stories``` - Endpoint for getting stories. 
+Homepage is on ```http://127.0.0.1:8000/```
