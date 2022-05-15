@@ -38,7 +38,7 @@ class StoryListView(generic.ListView):
 
         title = self.request.GET.get('title', None)
         val = self.request.GET.get('dropdown',None)
-        print(val)
+        
         if title:
             qs = Stories.objects.all()
             qs = qs.filter(title__icontains=title)
