@@ -25,7 +25,7 @@ class HackerNewsAPI:
         r = requests.get(self.stories_api)
         article_ids = r.json()
         five_articles_dicts = []  # this dict will contain all of our articles
-        for article_id in article_ids[:10]:
+        for article_id in article_ids[:100]:
             url = (
                 "https://hacker-news.firebaseio.com/v0/item/"
                 + str(article_id)
