@@ -4,6 +4,8 @@
 - Redis
 - Django
 - Celery and Celery Beat
+- Linux/Ubuntu
+
 ### To get started.
 - create a virtual environment and install the packages using  ```python install -r requirements.txt``` 
 - Make migrations
