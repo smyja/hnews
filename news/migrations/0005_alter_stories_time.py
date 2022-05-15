@@ -6,13 +6,15 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('news', '0004_alter_comment_time_alter_stories_descendants'),
+        ("news", "0004_alter_comment_time_alter_stories_descendants"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='stories',
-            name='time',
-            field=models.CharField(max_length=1000, null=True, verbose_name='Date created'),
+            model_name="stories",
+            name="time",
+            field=models.CharField(
+                max_length=1000, null=True, verbose_name="Date created"
+            ),
         ),
     ]

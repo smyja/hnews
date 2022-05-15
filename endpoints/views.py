@@ -5,10 +5,13 @@ from news.models import Headline
 from news.api.serializers import *
 
 
-
-@api_view(['GET',])
+@api_view(
+    [
+        "GET",
+    ]
+)
 def api_head(request):
-    py = Headline.objects.all().order_by('-id')
+    py = Headline.objects.all().order_by("-id")
 
     if request.method == "GET":
         serializer = HeadlineTitleSerializer(py, many=True)

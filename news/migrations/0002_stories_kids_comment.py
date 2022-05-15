@@ -8,28 +8,57 @@ import django_mysql.models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('news', '0001_initial'),
+        ("news", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='stories',
-            name='kids',
-            field=django_mysql.models.ListCharField(models.IntegerField(), max_length=1200, null=True, size=None),
+            model_name="stories",
+            name="kids",
+            field=django_mysql.models.ListCharField(
+                models.IntegerField(), max_length=1200, null=True, size=None
+            ),
         ),
         migrations.CreateModel(
-            name='Comment',
+            name="Comment",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.TextField(null=True, verbose_name='Title')),
-                ('comment_id', models.IntegerField(null=True, unique=True, verbose_name='Story ID')),
-                ('author', models.CharField(max_length=50, null=True, verbose_name='Author')),
-                ('time', models.DateTimeField(null=True, verbose_name='Date created')),
-                ('text', models.TextField(null=True, verbose_name='Text')),
-                ('dead', models.BooleanField(default=False)),
-                ('comment_url', models.URLField(max_length=1000, null=True, verbose_name='URL')),
-                ('score', models.IntegerField(null=True, verbose_name='Score')),
-                ('story', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='comments', to='news.stories')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.TextField(null=True, verbose_name="Title")),
+                (
+                    "comment_id",
+                    models.IntegerField(
+                        null=True, unique=True, verbose_name="Story ID"
+                    ),
+                ),
+                (
+                    "author",
+                    models.CharField(max_length=50, null=True, verbose_name="Author"),
+                ),
+                ("time", models.DateTimeField(null=True, verbose_name="Date created")),
+                ("text", models.TextField(null=True, verbose_name="Text")),
+                ("dead", models.BooleanField(default=False)),
+                (
+                    "comment_url",
+                    models.URLField(max_length=1000, null=True, verbose_name="URL"),
+                ),
+                ("score", models.IntegerField(null=True, verbose_name="Score")),
+                (
+                    "story",
+                    models.ForeignKey(
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="comments",
+                        to="news.stories",
+                    ),
+                ),
             ],
         ),
     ]

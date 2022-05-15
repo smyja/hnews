@@ -7,29 +7,55 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Stories',
+            name="Stories",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('story_id', models.IntegerField(null=True, verbose_name='Story ID')),
-                ('title', models.TextField(null=True, verbose_name='Title')),
-                ('story_type', models.CharField(max_length=15, null=True, verbose_name='Type of item')),
-                ('synced', models.DateTimeField(auto_now_add=True, null=True)),
-                ('author', models.CharField(max_length=50, null=True, verbose_name='Author')),
-                ('slug', models.SlugField(max_length=2000, null=True)),
-                ('time', models.DateTimeField(null=True, verbose_name='Date created')),
-                ('text', models.TextField(null=True, verbose_name='The comment, story or poll text.')),
-                ('dead', models.BooleanField(default=False)),
-                ('url', models.URLField(max_length=1000, null=True, verbose_name='URL')),
-                ('score', models.IntegerField(null=True, verbose_name='Score')),
-                ('descendants', models.IntegerField(null=True, verbose_name='Descendants')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("story_id", models.IntegerField(null=True, verbose_name="Story ID")),
+                ("title", models.TextField(null=True, verbose_name="Title")),
+                (
+                    "story_type",
+                    models.CharField(
+                        max_length=15, null=True, verbose_name="Type of item"
+                    ),
+                ),
+                ("synced", models.DateTimeField(auto_now_add=True, null=True)),
+                (
+                    "author",
+                    models.CharField(max_length=50, null=True, verbose_name="Author"),
+                ),
+                ("slug", models.SlugField(max_length=2000, null=True)),
+                ("time", models.DateTimeField(null=True, verbose_name="Date created")),
+                (
+                    "text",
+                    models.TextField(
+                        null=True, verbose_name="The comment, story or poll text."
+                    ),
+                ),
+                ("dead", models.BooleanField(default=False)),
+                (
+                    "url",
+                    models.URLField(max_length=1000, null=True, verbose_name="URL"),
+                ),
+                ("score", models.IntegerField(null=True, verbose_name="Score")),
+                (
+                    "descendants",
+                    models.IntegerField(null=True, verbose_name="Descendants"),
+                ),
             ],
             options={
-                'ordering': ('-synced',),
+                "ordering": ("-synced",),
             },
         ),
     ]

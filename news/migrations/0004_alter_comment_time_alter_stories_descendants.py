@@ -6,18 +6,22 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('news', '0003_alter_stories_synced'),
+        ("news", "0003_alter_stories_synced"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='comment',
-            name='time',
-            field=models.CharField(max_length=1000, null=True, verbose_name='Date created'),
+            model_name="comment",
+            name="time",
+            field=models.CharField(
+                max_length=1000, null=True, verbose_name="Date created"
+            ),
         ),
         migrations.AlterField(
-            model_name='stories',
-            name='descendants',
-            field=models.IntegerField(blank=True, null=True, verbose_name='Descendants'),
+            model_name="stories",
+            name="descendants",
+            field=models.IntegerField(
+                blank=True, null=True, verbose_name="Descendants"
+            ),
         ),
     ]
