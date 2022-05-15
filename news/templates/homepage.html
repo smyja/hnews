@@ -21,6 +21,15 @@
         <span>Result Count: {{ object_list.count }}</span> | 
         <span>Total Count: {{ total_count }}</span>
     </div>
+    <form method="GET">  
+         <select name="dropdown" class="form-select" aria-label="Default select example">
+        <option selected>Select Story Type</option>
+        <option value="story">Story</option>
+        <option value="job">Job</option>
+        <option value="poll">Poll</option>
+      </select>
+      <button type="submit" class="btn btn-dark">submit</button>
+    </form>
 
     <form method="GET">
         <div class="input-group mb-3">
@@ -28,6 +37,7 @@
             <div class="input-group-append">
                 <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Search</button>
             </div>
+      
         </div>
     </form>
 

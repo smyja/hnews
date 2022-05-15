@@ -34,13 +34,22 @@ class StoryListView(generic.ListView):
 
 
     def get_queryset(self):
-        qs = Stories.objects.all()
+        story = Stories.objects.filter(story_type='story')
 
         title = self.request.GET.get('title', None)
+        val = self.request.GET.get('dropdown',None)
+        print(val)
         if title:
+            qs = Stories.objects.all()
             qs = qs.filter(title__icontains=title)
+            return qs.order_by("-synced")
+        elif val:
+            qs = Stories.objects.all()
+            qs = qs.filter(story_type=val)
+            return qs.order_by("-synced")
+        
 
-        return qs.order_by("-synced")
+        return story.order_by("-synced")
 
     def get_context_data(self, **kwargs):
         context = super(StoryListView, self).get_context_data(**kwargs)
