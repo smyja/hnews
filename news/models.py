@@ -22,6 +22,11 @@ class Stories(models.Model):
     score = models.IntegerField("Score", null=True)
     descendants = models.IntegerField("Descendants", blank=True, null=True)
 
+    class Meta:
+        verbose_name = "Stories"
+        verbose_name_plural = "Stories"
+    
+
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
         super(Stories, self).save(*args, **kwargs)
@@ -42,6 +47,10 @@ class Comment(models.Model):
     dead = models.BooleanField(default=False)
     comment_url = models.URLField("URL", max_length=1000, null=True)
     score = models.IntegerField("Score", null=True)
+
+    class Meta:
+        verbose_name = "Comment"
+        verbose_name_plural = "Comments"
 
     def __str__(self):
         return self.title
