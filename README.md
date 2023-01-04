@@ -23,5 +23,5 @@ Open another terminal and run
 #### Endpoints
 - ```api/v1/docs``` - Swagger documentation
 - ```api/v1/create``` - Endpoint for creating story
-- ```api/v1/stories``` - Endpoint for getting stories. 
+- ```api/v1/stories``` - Endpoint for getting stories. (story type could be story,job,comment,poll,pollopt)
 Homepage is on ```http://127.0.0.1:8000/```
